@@ -12,23 +12,18 @@ xsetroot -cursor_name left_ptr &
 xrdb -merge ~/.Xdefaults &
 setxkbmap -option "ctrl:nocaps" &
 
-# Start a window compositor. This ensures Google Chrome paints correctly.
-xcompmgr -n &
-
 # Start the system tray
-tray &
+stalonetray -i 4 --window-type normal --window-strut none --background black --icon-gravity NE &
 
-# Start two terminals
-gnome-terminal &
-gnome-terminal &
+if [ -x /usr/bin/xfce4-volumed ] ; then
+    /usr/bin/xfce4-volumed &
+fi
+if [ -x /usr/bin/nm-applet ] ; then
+    /usr/bin/nm-applet --sm-disable &
+fi
+if [ -x /usr/bin/xfce4-clipman ] ; then
+    /usr/bin/xfce4-clipman &
+fi
 
-# Start a browser
-google-chrome &
 
-# Start screensaver
-gnome-screensaver &
-
-# Start sound server
-pulseaudio --start --log-target=syslog &
-
-gnome-session &
+exec xmonad
