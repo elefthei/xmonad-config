@@ -58,7 +58,7 @@ you may already have, cloning the git repository, and updating your PATH.
 
     cd
     mv .xmonad .xmonad.orig
-    git clone https://github.com/vicfryzel/xmonad-config.git .xmonad
+    git clone https://github.com/elefthei/xmonad-config.git .xmonad
 
 Once xmonad-config is installed, you also need to ensure you can actually
 start xmonad.  The mechanism to do this varies based on each environment, but
@@ -66,7 +66,8 @@ here are some instructions for some common login managers.
 
 ### Starting xmonad from lightdm, xdm, kdm, or gdm
 
-    ln -s ~/.xmonad/bin/xsession ~/.xsession
+    ln -sf ~/.xmonad/xmonad-session-rc ~/.xsession
+    ln -sf ~/.xmonad/stalonetray-rc ~/.stalonetrayrc
     # Logout, login from lightdm/xdm/kdm/gdm
 
 ### Starting xmonad from slim
