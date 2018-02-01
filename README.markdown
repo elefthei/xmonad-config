@@ -68,6 +68,7 @@ here are some instructions for some common login managers.
 
     ln -sf ~/.xmonad/xmonad-session-rc ~/.xsession
     ln -sf ~/.xmonad/stalonetray-rc ~/.stalonetrayrc
+    ln -sf ~/.xmonad/xmonad.desktop /usr/share/xsessions/xmonad.desktop
     # Logout, login from lightdm/xdm/kdm/gdm
 
 ### Starting xmonad from slim
