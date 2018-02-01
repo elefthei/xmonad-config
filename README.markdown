@@ -34,22 +34,20 @@ For source code, or to contribute, see the
 * [xmobar 0.11.1 or 0.13](http://projects.haskell.org/xmobar/)
 * [stalonetray 0.8.0](http://stalonetray.sourceforge.net/)
 * [dmenu 4.0](http://tools.suckless.org/dmenu/)
-* [yeganesh 2.2](http://dmwit.com/yeganesh/)
+* [rofi 1.3.1](https://github.com/DaveDavenport/rofi)
 * [scrot 0.8](http://freshmeat.net/projects/scrot/)
 
 ### Installing requirements on [Arch Linux](http://www.archlinux.org/)
 
-    sudo pacman -S xmonad xmonad-contrib xmobar stalonetray dmenu scrot \
+    sudo pacman -S xmonad rofi xmonad-contrib xmobar stalonetray dmenu scrot \
         cabal-install xcompmgr
     sudo cabal update
-    cabal install --global yeganesh
 
 ### Installing requirements on [Ubuntu Linux](http://www.ubuntu.com/)
 
-    sudo aptitude install xmonad libghc-xmonad-contrib-dev xmobar stalonetray \
+    sudo aptitude install xmonad rofi libghc-xmonad-contrib-dev xmobar stalonetray \
         suckless-tools scrot cabal-install xcompmgr
     sudo cabal update
-    sudo cabal install --global yeganesh
 
 ## Installation
 

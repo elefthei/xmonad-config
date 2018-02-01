@@ -2,5 +2,5 @@
 Name=XMonad
 Encoding=UTF-8
 Comment=Lightweight tiling window manager
-Exec=xmonad
+Exec=/home/lef/.xmonad/start-xmonad.sh
 Type=XSession
