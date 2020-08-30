@@ -17,6 +17,7 @@ import XMonad.Layout.ThreeColumns
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Hooks.EwmhDesktops        (ewmh)
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -105,12 +106,6 @@ tabConfig = defaultTheme {
     inactiveColor = "#000000"
 }
 
--- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
-
--- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
-
 -- Width of the window border in pixels.
 myBorderWidth = 1
 
@@ -135,15 +130,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn $ XMonad.terminal conf)
 
   -- Lock the screen.
-  , ((mod4Mask .|. shiftMask, xK_l), 
+  , ((mod4Mask .|. shiftMask, xK_l),
      spawn "xlock")
 
   -- Sudo shutdown
-  , ((mod4Mask .|. shiftMask, xK_s), 
+  , ((mod4Mask .|. shiftMask, xK_s),
      spawn "gksudo 'shutdown -h now'")
- 
+
   -- Change languages
-  , ((mod1Mask, xK_Shift_L), 
+  , ((mod1Mask, xK_Shift_L),
      spawn "lang-toggle")
 
   -- Spawn the launcher using command specified by myLauncher.
@@ -304,18 +299,13 @@ myStartupHook = return ()
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
 --
-main = do
-  xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
-  xmonad $ defaults {
-      logHook = dynamicLogWithPP $ xmobarPP {
-            ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
-          , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
-          , ppSep = "   "
-      }
-      , manageHook = manageDocks <+> myManageHook
-      , startupHook = setWMName "LG3D"
-  }
+main = xmonad $
+       -- docks allows xmonad to handle taffybar
+       docks $
+       -- ewmh allows taffybar access to the state of xmonad/x11
+       ewmh $
+       -- Default config
+       defaults
 
 
 ------------------------------------------------------------------------
