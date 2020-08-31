@@ -31,21 +31,18 @@ For source code, or to contribute, see the
 
 * xmonad 0.9.1 or 0.9.2
 * xmonad-contrib 0.9.1 or 0.9.2
-* [xmobar 0.11.1 or 0.13](http://projects.haskell.org/xmobar/)
-* [stalonetray 0.8.0](http://stalonetray.sourceforge.net/)
-* [dmenu 4.0](http://tools.suckless.org/dmenu/)
 * [rofi 1.3.1](https://github.com/DaveDavenport/rofi)
 * [scrot 0.8](http://freshmeat.net/projects/scrot/)
 
 ### Installing requirements on [Arch Linux](http://www.archlinux.org/)
 
-    sudo pacman -S xmonad rofi xmonad-contrib xmobar stalonetray dmenu scrot \
+    sudo pacman -S xmonad rofi xmonad-contrib scrot \
         cabal-install xcompmgr
     sudo cabal update
 
 ### Installing requirements on [Ubuntu Linux](http://www.ubuntu.com/)
 
-    sudo aptitude install xmonad rofi libghc-xmonad-contrib-dev xmobar stalonetray \
+    sudo aptitude install xmonad rofi libghc-xmonad-contrib-dev \
         suckless-tools scrot cabal-install xcompmgr
     sudo cabal update
 
@@ -65,8 +62,7 @@ here are some instructions for some common login managers.
 ### Starting xmonad from lightdm, xdm, kdm, or gdm
 
     ln -sf ~/.xmonad/xmonad-session-rc ~/.xsession
-    ln -sf ~/.xmonad/stalonetray-rc ~/.stalonetrayrc
-    ln -sf ~/.xmonad/xmonad.desktop /usr/share/xsessions/xmonad.desktop
+    sudo ln -sf ~/.xmonad/xmonad.desktop /usr/share/xsessions/xmonad.desktop
     # Logout, login from lightdm/xdm/kdm/gdm
 
 ### Starting xmonad from slim
